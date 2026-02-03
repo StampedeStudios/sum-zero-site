@@ -1,40 +1,38 @@
-# ReScript / Vite Starter Template
+# Sum Zero
 
-- [Installation](../../README.md)
+Website for Sum Zero, a game by Stampede Studios.
 
-This is a Vite-based template with following setup:
+## Tech Stack
 
-- [ReScript](https://rescript-lang.org) 11.0 with @rescript/react, [Core](https://github.com/rescript-association/rescript-core) and JSX v4
-- ES6 modules (ReScript code compiled to `.res.mjs` files)
-- Vite 6 with React Plugin (Fast Refresh)
-- Tailwind 4
+- [ReScript](https://rescript-lang.org) with React
+- [Vite](https://vitejs.dev)
+- [Tailwind CSS](https://tailwindcss.com) v4
 
 ## Development
 
 Run ReScript in dev mode:
 
 ```sh
-npm run res:dev
+pnpm res:dev
 ```
 
 In another tab, run the Vite dev server:
 
 ```sh
-npm run dev
+pnpm dev
 ```
 
-## Tips
+## Build
 
-### Fast Refresh & ReScript
+```sh
+pnpm res:build
+pnpm build
+```
 
-Make sure to create interface files (`.resi`) for each `*.res` file.
+Output is in the `dist` folder.
 
-Fast Refresh requires you to **only export React components**, and it's easy to unintenionally export other values that will disable Fast Refresh (you will see a message in the browser console whenever this happens).
+## Deployment
 
-### Why are the generated `.res.mjs` files tracked in git?
+Deployed to GitHub Pages via GitHub Actions. Push to `main` triggers a build and deploy.
 
-In ReScript, it's a good habit to keep track of the actual JS output the compiler emits. It allows quick sanity checking if we made any changes that actually have an impact on the resulting JS code (especially when doing major compiler upgrades, it's a good way to verify if production code will behave the same way as before the upgrade).
-
-This will also make it easier for your Non-ReScript coworkers to read and understand the changes in Github PRs, and call you out when you are writing inefficient code.
-
-If you want to opt-out, feel free to remove all compiled `.res.mjs` files within the `src` directory and add `src/**/*.res.mjs` in your `.gitignore`.
+Custom domain: [sum-zero.com](https://sum-zero.com)

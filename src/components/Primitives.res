@@ -71,10 +71,10 @@ module Button = {
     | Some(href) if !isExternal =>
       <a
         className={className}
-        href={href}
+        href={"#" ++ href}
         onClick={e => {
           ReactEvent.Mouse.preventDefault(e)
-          RescriptReactRouter.push(href)
+          Navigation.push(href)
         }}
       >
         content
