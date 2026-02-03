@@ -23,7 +23,7 @@ module Button = {
     let variantClass = switch variant {
     | Solid => "[background-color:var(--btn-9)] hover:[background-color:var(--btn-10)] [color:var(--btn-contrast)] border-transparent [box-shadow:var(--btn-11)_0_-2px_0_0_inset,_var(--btn-3)_0_1px_3px_0] hover:[box-shadow:none] active:not-disabled:[box-shadow:none]"
     | Soft => "[background-color:var(--btn-3)] hover:[background-color:var(--btn-4)] [color:var(--btn-11)] border-transparent"
-    | Outline => "bg-transparent hover:[background-color:var(--btn-2)] [color:var(--btn-11)] [border-color:var(--btn-7)] hover:[border-color:var(--btn-8)]"
+    | Outline => "[background-color:var(--btn-1)] hover:[background-color:var(--btn-2)] [color:var(--btn-11)] [border-color:var(--btn-7)] hover:[border-color:var(--btn-8)]"
     }
 
     let hasLeading = leadingIcon->Option.isSome
@@ -61,7 +61,24 @@ module Button = {
         }}
       </>
 
+    let isExternal = switch (href, target) {
+    | (Some(h), _) if String.startsWith(h, "http") => true
+    | (_, Some(_)) => true
+    | _ => false
+    }
+
     switch href {
+    | Some(href) if !isExternal =>
+      <a
+        className={className}
+        href={href}
+        onClick={e => {
+          ReactEvent.Mouse.preventDefault(e)
+          RescriptReactRouter.push(href)
+        }}
+      >
+        content
+      </a>
     | Some(href) =>
       let target = target->Option.map(t =>
         switch t {

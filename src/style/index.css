@@ -57,6 +57,7 @@ h6 {
 }
 
 .color-accent {
+    --btn-1: var(--color-lime-1);
     --btn-2: var(--color-lime-2);
     --btn-3: var(--color-lime-3);
     --btn-4: var(--color-lime-4);

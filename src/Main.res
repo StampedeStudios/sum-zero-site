@@ -2,6 +2,7 @@
 
 switch ReactDOM.querySelector("#root") {
 | Some(domElement) =>
+  GridBackground.init()
   ReactDOM.Client.createRoot(domElement)->ReactDOM.Client.Root.render(
     <React.StrictMode>
       <App />

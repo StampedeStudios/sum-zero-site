@@ -2,7 +2,7 @@
 let make = () => {
   open Primitives
   <>
-    <h1 className="text-8xl mb-2"> {React.string("Sum Zero")} </h1>
+    <h1 className="text-8xl mb-2 text-center"> {React.string("Sum Zero")} </h1>
     <h5 className="text-gray-11"> {React.string("Minimal math puzzle game")} </h5>
     <hr className="mb-8" />
 
@@ -23,7 +23,7 @@ let make = () => {
       </Button>
     </div>
 
-    <span className="text-gray-10 mt-4">
+    <span className="text-gray-10 mt-4 text-center">
       {React.string("Available for Windows, Linux and Android")}
     </span>
   </>
