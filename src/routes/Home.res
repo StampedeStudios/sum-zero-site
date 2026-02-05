@@ -6,7 +6,7 @@ let make = () => {
     <h5 className="text-gray-11"> {React.string("Minimal math puzzle game")} </h5>
     <hr className="mb-8" />
 
-    <div className="flex flex-row gap-3">
+    <div className="flex gap-3 sm:flex-row flex-col w-full justify-center">
       <Button size={Lg} leadingIcon={<Icon.Download />} href="/download">
         {React.string("Download")}
       </Button>

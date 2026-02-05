@@ -13,6 +13,7 @@ module Button = {
     ~leadingIcon: option<React.element>=?,
     ~trailingIcon: option<React.element>=?,
     ~children,
+    ~className: option<string>=?,
     ~disabled=false,
   ) => {
     let colorClass = switch color {
@@ -21,7 +22,7 @@ module Button = {
     }
 
     let variantClass = switch variant {
-    | Solid => "[background-color:var(--btn-9)] hover:[background-color:var(--btn-10)] [color:var(--btn-contrast)] border-transparent [box-shadow:var(--btn-11)_0_-2px_0_0_inset,_var(--btn-3)_0_1px_3px_0] hover:[box-shadow:none] active:not-disabled:[box-shadow:none]"
+    | Solid => "[background-color:var(--btn-9)] hover:[background-color:var(--btn-10)] [color:var(--btn-contrast)] border-lime-10 [box-shadow:var(--btn-11)_0_-2px_0_0_inset,_var(--btn-3)_0_1px_3px_0] hover:[box-shadow:none] active:not-disabled:[box-shadow:none]"
     | Soft => "[background-color:var(--btn-3)] hover:[background-color:var(--btn-4)] [color:var(--btn-11)] border-transparent"
     | Outline => "[background-color:var(--btn-1)] hover:[background-color:var(--btn-2)] [color:var(--btn-11)] [border-color:var(--btn-7)] hover:[border-color:var(--btn-8)]"
     }
@@ -46,6 +47,7 @@ module Button = {
       variantClass,
       sizeClass,
       "group select-none tracking-tight rounded-sm inline-flex items-center justify-center text-nowrap border lg:active:not-disabled:translate-y-px lg:active:not-disabled:scale-[.99] disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none",
+      className->Option.getOr(""),
     ])
 
     let content =

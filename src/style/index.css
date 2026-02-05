@@ -11,11 +11,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-button {
-    all: unset;
-    cursor: pointer;
-}
-
 h1,
 h2,
 h3,
