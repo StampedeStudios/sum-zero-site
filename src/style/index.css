@@ -11,6 +11,23 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.hero-bg {
+    position: relative;
+}
+
+.hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/numbers_bg.svg");
+    background-repeat: repeat;
+    background-size: 768px 768px;
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
 h1,
 h2,
 h3,

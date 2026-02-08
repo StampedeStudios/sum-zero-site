@@ -15,6 +15,7 @@ module Button = {
     ~children,
     ~className: option<string>=?,
     ~disabled=false,
+    ~onClick: option<ReactEvent.Mouse.t => unit>=?,
   ) => {
     let colorClass = switch color {
     | Accent => "color-accent"
@@ -91,7 +92,7 @@ module Button = {
         }
       )
       <a className={className} href={href} ?target> content </a>
-    | None => <button className={className} disabled={disabled}> content </button>
+    | None => <button className={className} disabled={disabled} ?onClick> content </button>
     }
   }
 }

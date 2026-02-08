@@ -17,7 +17,7 @@ type state =
 module Subtitle = {
   @react.component
   let make = (~text: string) =>
-    <div className="text-gray-10 text-sm font-normal mb-2 mt-1"> {React.string(text)} </div>
+    <div className="text-gray-11 text-sm font-normal mb-2 mt-1"> {React.string(text)} </div>
 }
 
 let findAssetUrl = (assets: array<asset>, keyword: string): option<string> =>
@@ -58,11 +58,6 @@ module Parse = {
   }
 }
 
-let delay = (ms: int) =>
-  Promise.make((resolve, _reject) => {
-    let _ = setTimeout(() => resolve(), ms)
-  })
-
 let fetchLatestRelease = async () => {
   switch await Fetch.fetch(
     "https://api.github.com/repos/StampedeStudios/sum-zero/releases/latest",
@@ -98,11 +93,11 @@ let make = () => {
   }
 
   let downloadButtons = [
-    ("Windows", <Icon.Windows width="16" height="16" />, "Intel/AMD", "windows"),
     ("Linux", <Icon.Linux width="16" height="16" />, "", "linux"),
+    ("Windows", <Icon.Windows width="16" height="16" />, "Intel/AMD", "windows"),
   ]
 
-  <div className="w-full sm:w-2/3 lg:w-1/3 mx-auto">
+  <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 mx-auto">
     <h1 className="text-lime-12 font-mono flex justify-between items-center gap-3 mb-3">
       {switch tagName {
       | Some(v) => React.string(v)
@@ -127,6 +122,37 @@ let make = () => {
     | Failed(_) => <p> {React.string("Failed to load release information.")} </p>
     | _ =>
       <ul className="flex flex-col gap-4">
+        <li>
+          // Android Button
+          <h5 className="mb-2 text-lime-11 flex items-center gap-2 font-semibold">
+            <Icon.Android width="16" height="16" />
+            {React.string("Android")}
+          </h5>
+          <Button
+            leadingIcon={<Icon.ExternalLink />}
+            href="https://play.google.com/store/apps/details?id=it.stampede.sumzero"
+            target={Blank}
+            className="w-full"
+          >
+            {React.string("Open")}
+          </Button>
+          <Subtitle text="7.0 or later" />
+        </li>
+        <li>
+          // Itch page
+          <h5 className="mb-2 text-lime-11 flex items-center gap-2 font-semibold">
+            <Icon.Itch width="16" height="16" />
+            {React.string("Web")}
+          </h5>
+          <Button
+            leadingIcon={<Icon.ExternalLink />}
+            href="https://stampede-studios.itch.io/sum-zero"
+            target={Blank}
+            className="w-full"
+          >
+            {React.string("Open")}
+          </Button>
+        </li>
         {downloadButtons
         ->Array.map(((label, icon, subtitle, keyword)) => {
           let url = if loading {
@@ -141,7 +167,13 @@ let make = () => {
             </h5>
             {switch url {
             | Some(url) =>
-              <Button leadingIcon={<Icon.Download />} href={url} target={Blank} className="w-full">
+              <Button
+                leadingIcon={<Icon.Download />}
+                href={url}
+                variant=Outline
+                target={Blank}
+                className="w-full"
+              >
                 {React.string("Download")}
               </Button>
             | None =>
@@ -155,39 +187,6 @@ let make = () => {
           </li>
         })
         ->React.array}
-        <li>
-          // Android Button
-          <h5 className="mb-2 text-lime-11 flex items-center gap-2 font-semibold">
-            <Icon.Android width="16" height="16" />
-            {React.string("Android")}
-          </h5>
-          <Button
-            leadingIcon={<Icon.ExternalLink />}
-            variant={Outline}
-            href="https://play.google.com/store/apps/details?id=it.stampede.sumzero"
-            target={Blank}
-            className="w-full"
-          >
-            {React.string("Open")}
-          </Button>
-          <Subtitle text="7.0 or later" />
-        </li>
-        <li>
-          // Itch page
-          <h5 className="mb-2 text-lime-11 flex items-center gap-2 font-semibold">
-            <Icon.Globe width="16" height="16" />
-            {React.string("Web")}
-          </h5>
-          <Button
-            leadingIcon={<Icon.ExternalLink />}
-            variant={Outline}
-            href="https://stampede-studios.itch.io/sum-zero"
-            target={Blank}
-            className="w-full"
-          >
-            {React.string("Open")}
-          </Button>
-        </li>
       </ul>
     }}
   </div>

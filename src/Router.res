@@ -16,7 +16,6 @@ let make = () => {
   }
   switch path {
   | list{} => <Home />
-  | list{"download"} => <Download />
   | list{"about"} => <About />
   | _ => <NotFound />
   }
