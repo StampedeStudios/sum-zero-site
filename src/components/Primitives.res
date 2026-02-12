@@ -16,6 +16,7 @@ module Button = {
     ~className: option<string>=?,
     ~disabled=false,
     ~onClick: option<ReactEvent.Mouse.t => unit>=?,
+    ~ariaLabel: option<string>=?,
   ) => {
     let colorClass = switch color {
     | Accent => "color-accent"
@@ -23,9 +24,9 @@ module Button = {
     }
 
     let variantClass = switch variant {
-    | Solid => "[background-color:var(--btn-9)] hover:[background-color:var(--btn-10)] [color:var(--btn-contrast)] border-lime-10 [box-shadow:var(--btn-11)_0_-2px_0_0_inset,_var(--btn-3)_0_1px_3px_0] hover:[box-shadow:none] active:not-disabled:[box-shadow:none]"
-    | Soft => "[background-color:var(--btn-3)] hover:[background-color:var(--btn-4)] [color:var(--btn-11)] border-transparent"
-    | Outline => "[background-color:var(--btn-1)] hover:[background-color:var(--btn-2)] [color:var(--btn-11)] [border-color:var(--btn-7)] hover:[border-color:var(--btn-8)]"
+    | Solid => "[background-color:var(--btn-9)] hover:[background-color:var(--btn-10)] [color:var(--btn-contrast)] [border-color:var(--btn-8)] [box-shadow:0_3px_0_var(--btn-8)] active:not-disabled:[box-shadow:none] active:not-disabled:translate-y-[3px] focus-visible:[box-shadow:none] transition-all duration-150"
+    | Soft => "[background-color:var(--btn-3)] hover:[background-color:var(--btn-4)] [color:var(--btn-11)] border-transparent active:not-disabled:translate-y-[3px] transition-transform duration-150"
+    | Outline => "[background-color:var(--btn-1)] text-gray-11 hover:[background-color:var(--btn-2)] [color:var(--btn-11)] [border-color:var(--btn-7)] hover:[border-color:var(--btn-8)] active:not-disabled:translate-y-[3px] transition-transform duration-150"
     }
 
     let hasLeading = leadingIcon->Option.isSome
@@ -47,7 +48,7 @@ module Button = {
       colorClass,
       variantClass,
       sizeClass,
-      "group select-none tracking-tight rounded-sm inline-flex items-center justify-center text-nowrap border lg:active:not-disabled:translate-y-px lg:active:not-disabled:scale-[.99] disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none",
+      "group select-none tracking-tight rounded-sm inline-flex items-center justify-center text-nowrap border disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none focus-visible:outline-3 focus-visible:outline-lime-8 focus-visible:outline-offset-3",
       className->Option.getOr(""),
     ])
 
@@ -75,6 +76,7 @@ module Button = {
       <a
         className={className}
         href={"#" ++ href}
+        ?ariaLabel
         onClick={e => {
           ReactEvent.Mouse.preventDefault(e)
           Navigation.push(href)
@@ -91,8 +93,9 @@ module Button = {
         | Top => "_top"
         }
       )
-      <a className={className} href={href} ?target> content </a>
-    | None => <button className={className} disabled={disabled} ?onClick> content </button>
+      <a className={className} href={href} ?target ?ariaLabel> content </a>
+    | None =>
+      <button className={className} disabled={disabled} ?onClick ?ariaLabel> content </button>
     }
   }
 }

@@ -20,7 +20,8 @@
     "@rescript/runtime": "^12.1.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "rescript": "12.1.0"
+    "rescript": "12.1.0",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.12",

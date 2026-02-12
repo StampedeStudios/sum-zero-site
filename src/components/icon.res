@@ -4,6 +4,12 @@ module ArrowLeft = {
     "ArrowLeftIcon"
 }
 
+module ArrowUp = {
+  @module("@radix-ui/react-icons") @react.component
+  external make: (~width: string=?, ~height: string=?, ~className: string=?) => React.element =
+    "ArrowUpIcon"
+}
+
 module ExternalLink = {
   @module("@radix-ui/react-icons") @react.component
   external make: (~width: string=?, ~height: string=?, ~className: string=?) => React.element =
@@ -34,6 +40,7 @@ module Windows = {
     <svg
       className
       role="img"
+      ariaLabel="Windows"
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
       width
@@ -50,6 +57,7 @@ module Apple = {
     <svg
       className
       role="img"
+      ariaLabel="Apple"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       width
@@ -68,6 +76,7 @@ module Linux = {
     <svg
       className
       role="img"
+      ariaLabel="Linux"
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
       width
@@ -95,6 +104,7 @@ module Android = {
     <svg
       className
       role="img"
+      ariaLabel="Android"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       width
@@ -114,6 +124,7 @@ module Itch = {
       xmlns="http://www.w3.org/2000/svg"
       className
       role="img"
+      ariaLabel="itch.io"
       height
       width
       viewBox="0 0 245.371 220.736"

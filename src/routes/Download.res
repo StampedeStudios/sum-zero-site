@@ -97,7 +97,7 @@ let make = () => {
     ("Windows", <Icon.Windows width="16" height="16" />, "Intel/AMD", "windows"),
   ]
 
-  <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 mx-auto">
+  <div className="w-full md:w-2/3 mx-auto" ariaLive=#polite ariaBusy={state == Loading}>
     <h1 className="text-lime-12 font-mono flex justify-between items-center gap-3 mb-3">
       {switch tagName {
       | Some(v) => React.string(v)
@@ -133,6 +133,7 @@ let make = () => {
             href="https://play.google.com/store/apps/details?id=it.stampede.sumzero"
             target={Blank}
             className="w-full"
+            ariaLabel="Open Sum Zero on Google Play (opens in new tab)"
           >
             {React.string("Open")}
           </Button>
@@ -149,6 +150,7 @@ let make = () => {
             href="https://stampede-studios.itch.io/sum-zero"
             target={Blank}
             className="w-full"
+            ariaLabel="Play Sum Zero on itch.io (opens in new tab)"
           >
             {React.string("Open")}
           </Button>
@@ -173,6 +175,7 @@ let make = () => {
                 variant=Outline
                 target={Blank}
                 className="w-full"
+                ariaLabel={`Download Sum Zero for ${label} (opens in new tab)`}
               >
                 {React.string("Download")}
               </Button>
@@ -189,5 +192,23 @@ let make = () => {
         ->React.array}
       </ul>
     }}
+
+    <div className="flex flex-col items-center gap-3 mt-10 pt-8 border-t border-gray-6">
+      <p className="text-gray-11 text-sm text-center">
+        {React.string("Enjoying Sum Zero? Consider supporting the project <3!")}
+      </p>
+      <a
+        className="focus-visible:outline-3 focus-visible:outline-lime-8 focus-visible:outline-offset-2 transition-opacity rounded-sm"
+        href="https://ko-fi.com/K3K41CH2HE"
+        target="_blank"
+        ariaLabel="Support Sum Zero on Ko-fi (opens in new tab)"
+      >
+        <img
+          src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
+          alt="Support me on Ko-fi"
+          className="h-10 hover:opacity-80"
+        />
+      </a>
+    </div>
   </div>
 }

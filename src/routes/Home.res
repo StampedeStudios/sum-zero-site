@@ -1,13 +1,44 @@
+@module("../assets/basic-level.jpeg") external basicLevelImg: string = "default"
+@module("../assets/rich-feature-level.jpeg") external richFeatureLevelImg: string = "default"
+@module("../assets/complex-level.jpeg") external complexLevelImg: string = "default"
+
 @send external scrollIntoView: (Dom.element, {"behavior": string}) => unit = "scrollIntoView"
+
+@val external window: Dom.element = "window"
+@send external addEventListener: (Dom.element, string, unit => unit) => unit = "addEventListener"
+@send
+external removeEventListener: (Dom.element, string, unit => unit) => unit = "removeEventListener"
+@val external scrollY: float = "window.scrollY"
+@val external innerHeight: float = "window.innerHeight"
 
 @react.component
 let make = () => {
   open Primitives
+
+  let (showBackToTop, setShowBackToTop) = React.useState(() => false)
+
+  React.useEffect0(() => {
+    let onScroll = () => {
+      setShowBackToTop(_ => scrollY > innerHeight)
+    }
+    window->addEventListener("scroll", onScroll)
+    Some(() => window->removeEventListener("scroll", onScroll))
+  })
+
+  let scrollToTop = _ => {
+    switch ReactDOM.querySelector(".hero-bg") {
+    | Some(el) => el->scrollIntoView({"behavior": "smooth"})
+    | None => ()
+    }
+  }
+
   <>
     <div
       className="hero-bg min-h-screen flex flex-col flex-1 flex justify-center items-center flex-col"
     >
-      <h1 className="text-8xl mb-2 text-center text-gray-12 flex items-center gap-6">
+      <h1
+        className="text-8xl mb-2 text-center text-gray-12 flex items-center gap-6 flex-col sm:flex-row gap-10 sm:gap-6"
+      >
         <img src="/sum-zero-logo.svg" alt="Sum Zero" width="64" height="64" />
         {React.string("Sum Zero")}
       </h1>
@@ -36,6 +67,7 @@ let make = () => {
           leadingIcon={<Icon.Github />}
           href="https://github.com/StampedeStudios/sum-zero"
           target=Blank
+          ariaLabel="Source code on GitHub (opens in new tab)"
         >
           {React.string("Source code")}
         </Button>
@@ -45,22 +77,76 @@ let make = () => {
         {React.string("Available for Android, Linux and Windows")}
       </span>
     </div>
-    <div id="download">
-      <Download />
+    <div className="max-w-5xl mx-auto py-24 md:py-32 flex flex-col gap-24 md:gap-32">
+      // Row 1: Image left, text right
+      <div className="flex flex-col md:flex-row items-center gap-10">
+        <div className="w-full sm:w-4/5 md:w-1/2 shadow-image rounded-xl">
+          <img src={basicLevelImg} alt="Basic level" className="w-full rounded-xl relative z-10" />
+        </div>
+        <div className="w-full md:w-1/2">
+          <h3 className="text-2xl font-semibold text-gray-12 mb-3">
+            {React.string("Simple to pick up")}
+          </h3>
+          <p className="text-gray-11 text-base leading-relaxed">
+            {React.string(
+              "Start with clean, minimal levels that teach you the basics. Tap, combine, and reach zero — it's that simple.",
+            )}
+          </p>
+        </div>
+      </div>
+      // Row 2: Text left, image right
+      <div className="flex flex-col md:flex-row-reverse items-center gap-10">
+        <div className="w-full sm:w-4/5 md:w-1/2 shadow-image rounded-xl">
+          <img
+            src={richFeatureLevelImg}
+            alt="Feature-rich level"
+            className="w-full rounded-xl relative z-10"
+          />
+        </div>
+        <div className="w-full md:w-1/2">
+          <h3 className="text-2xl font-semibold text-gray-12 mb-3">
+            {React.string("Rich mechanics")}
+          </h3>
+          <p className="text-gray-11 text-base leading-relaxed">
+            {React.string(
+              "Discover new tile types and special rules as you progress. Each mechanic adds a fresh twist to keep you thinking.",
+            )}
+          </p>
+        </div>
+      </div>
+      // Row 3: Image left, text right
+      <div className="flex flex-col md:flex-row items-center gap-10">
+        <div className="w-full sm:w-4/5 md:w-1/2 shadow-image rounded-xl">
+          <img
+            src={complexLevelImg} alt="Complex level" className="w-full rounded-xl relative z-10"
+          />
+        </div>
+        <div className="w-full md:w-1/2">
+          <h3 className="text-2xl font-semibold text-gray-12 mb-3">
+            {React.string("Challenging puzzles")}
+          </h3>
+          <p className="text-gray-11 text-base leading-relaxed">
+            {React.string(
+              "Push your logic to the limit with complex, multi-step puzzles that demand creative solutions.",
+            )}
+          </p>
+        </div>
+      </div>
     </div>
-    <div className="flex flex-col items-center gap-3 mt-14 mb-40 px-6">
-      <p className="text-gray-11 text-sm text-center">
-        {React.string("Enjoying Sum Zero? Consider supporting the project <3!")}
+    <div id="download" className="max-w-5xl mx-auto pb-24 md:pb-32">
+      <h2 className="text-3xl font-semibold text-gray-12 text-center mb-3">
+        {React.string("Get Sum Zero")}
+      </h2>
+      <p className="text-gray-11 text-center mb-10">
+        {React.string("Free and open source. Available on Android, Linux and Windows.")}
       </p>
-      <a href="https://ko-fi.com/K3K41CH2HE" target="_blank">
-        <img
-          src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
-          alt="Support me on Ko-fi"
-          className="h-9 hover:opacity-80 transition-opacity"
-        />
-      </a>
+      <div
+        className="border-lime-8 shadow-image-sm sm:rounded-xl p-0 py-4 sm:p-8 md:p-12 sm:bg-gray-1 border-t-1"
+      >
+        <Download />
+      </div>
     </div>
-    <footer className="pt-8 px-6 text-center text-xs md:text-sm text-gray-11 flex flex-col gap-2">
+    <footer className="py-8 px-6 text-center text-xs md:text-sm text-gray-11">
       <p>
         {React.string({
           `\u00A9 ${Int.toString(
@@ -69,5 +155,23 @@ let make = () => {
         })}
       </p>
     </footer>
+    <div
+      className={`fixed top-12 right-10 z-50 transition-all duration-300 ${if showBackToTop {
+          "opacity-100 translate-y-0"
+        } else {
+          "opacity-0 -translate-y-4 pointer-events-none"
+        }}`}
+      ariaHidden={!showBackToTop}
+    >
+      <Button
+        className="backdrop-blur-xs !bg-white/70 rounded-lg"
+        variant=Outline
+        size=Lg
+        onClick={scrollToTop}
+        ariaLabel="Back to top"
+      >
+        {React.string("top")}
+      </Button>
+    </div>
   </>
 }
