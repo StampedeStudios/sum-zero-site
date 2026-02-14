@@ -3,6 +3,18 @@
 @import "tailwindcss/theme" layer(theme);
 @import "tailwindcss/utilities";
 
+html {
+    scroll-behavior: smooth;
+}
+
+.qr-chevron {
+    transition: transform 200ms;
+}
+
+details[open] > summary .qr-chevron {
+    transform: rotate(180deg);
+}
+
 body {
     background-color: var(--color-background);
     color: var(--color-gray-12);

@@ -65,25 +65,7 @@ module Button = {
         }}
       </>
 
-    let isExternal = switch (href, target) {
-    | (Some(h), _) if String.startsWith(h, "http") => true
-    | (_, Some(_)) => true
-    | _ => false
-    }
-
     switch href {
-    | Some(href) if !isExternal =>
-      <a
-        className={className}
-        href={"#" ++ href}
-        ?ariaLabel
-        onClick={e => {
-          ReactEvent.Mouse.preventDefault(e)
-          Navigation.push(href)
-        }}
-      >
-        content
-      </a>
     | Some(href) =>
       let target = target->Option.map(t =>
         switch t {

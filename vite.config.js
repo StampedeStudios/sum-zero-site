@@ -10,9 +10,6 @@ export default defineConfig({
 			include: ["**/*.res.mjs"],
 		}),
 	],
-	test: {
-		include: ["src/**/*_test.res.mjs"],
-	},
 	server: {
 		watch: {
 			// We ignore ReScript build artifacts to avoid unnecessarily triggering HMR on incremental compilation

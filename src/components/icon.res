@@ -28,6 +28,12 @@ module Download = {
     "DownloadIcon"
 }
 
+module ChevronDown = {
+  @module("@radix-ui/react-icons") @react.component
+  external make: (~width: string=?, ~height: string=?, ~className: string=?) => React.element =
+    "ChevronDownIcon"
+}
+
 module Github = {
   @module("@radix-ui/react-icons") @react.component
   external make: (~width: string=?, ~height: string=?, ~className: string=?) => React.element =

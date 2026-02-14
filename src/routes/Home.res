@@ -2,8 +2,6 @@
 @module("../assets/rich-feature-level.jpeg") external richFeatureLevelImg: string = "default"
 @module("../assets/complex-level.jpeg") external complexLevelImg: string = "default"
 
-@send external scrollIntoView: (Dom.element, {"behavior": string}) => unit = "scrollIntoView"
-
 @val external window: Dom.element = "window"
 @send external addEventListener: (Dom.element, string, unit => unit) => unit = "addEventListener"
 @send
@@ -15,22 +13,16 @@ external removeEventListener: (Dom.element, string, unit => unit) => unit = "rem
 let make = () => {
   open Primitives
 
-  let (showBackToTop, setShowBackToTop) = React.useState(() => false)
+  let (showBackToTop, setShowBackToTop) = React.useState(() => true)
 
   React.useEffect0(() => {
     let onScroll = () => {
       setShowBackToTop(_ => scrollY > innerHeight)
     }
+    onScroll()
     window->addEventListener("scroll", onScroll)
     Some(() => window->removeEventListener("scroll", onScroll))
   })
-
-  let scrollToTop = _ => {
-    switch ReactDOM.querySelector(".hero-bg") {
-    | Some(el) => el->scrollIntoView({"behavior": "smooth"})
-    | None => ()
-    }
-  }
 
   <>
     <div
@@ -47,16 +39,7 @@ let make = () => {
       </h2>
 
       <div className="flex gap-3 sm:flex-row flex-col w-full justify-center mt-4">
-        <Button
-          size={Lg}
-          leadingIcon={<Icon.Download />}
-          onClick={_ => {
-            switch ReactDOM.querySelector("#download") {
-            | Some(el) => el->scrollIntoView({"behavior": "smooth"})
-            | None => ()
-            }
-          }}
-        >
+        <Button size={Lg} leadingIcon={<Icon.Download />} href="#download" target=Self>
           {React.string("Download")}
         </Button>
 
@@ -167,7 +150,8 @@ let make = () => {
         className="backdrop-blur-xs !bg-white/70 rounded-lg"
         variant=Outline
         size=Lg
-        onClick={scrollToTop}
+        href="#"
+        target=Self
         ariaLabel="Back to top"
       >
         {React.string("top")}

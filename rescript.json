@@ -16,6 +16,6 @@
   "jsx": {
     "version": 4
   },
-  "dependencies": ["@rescript/react", "rescript-vitest"],
+  "dependencies": ["@rescript/react"],
   "compiler-flags": []
 }

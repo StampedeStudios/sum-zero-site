@@ -1,0 +1,18 @@
+{
+  "tag_name": "1.4.4",
+  "published_at": "2026-02-02T20:19:33Z",
+  "assets": [
+    {
+      "name": "SumZero_Linux.zip",
+      "browser_download_url": "https://github.com/StampedeStudios/sum-zero/releases/download/1.4.4/SumZero_Linux.zip"
+    },
+    {
+      "name": "SumZero_WebGL.zip",
+      "browser_download_url": "https://github.com/StampedeStudios/sum-zero/releases/download/1.4.4/SumZero_WebGL.zip"
+    },
+    {
+      "name": "SumZero_Windows.zip",
+      "browser_download_url": "https://github.com/StampedeStudios/sum-zero/releases/download/1.4.4/SumZero_Windows.zip"
+    }
+  ]
+}
