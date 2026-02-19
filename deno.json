@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "build": "deno run --allow-net --allow-read --allow-write --allow-env build.ts",
+    "dev": "deno run --allow-net --allow-read --allow-write --allow-env --allow-run dev.ts"
+  },
+  "imports": {
+    "@eta-dev/eta": "jsr:@eta-dev/eta",
+    "@std/fs": "jsr:@std/fs",
+    "@std/http": "jsr:@std/http"
+  }
+}
