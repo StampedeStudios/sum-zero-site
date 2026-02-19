@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="A minimalist math puzzle game developed by Stampede Studios" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum Zero</title>
+    <link rel="preload" href="/assets/basic-level.jpeg" as="image" fetchpriority="high" />
+    <link rel="preload" href="/assets/rich-feature-level.jpeg" as="image" fetchpriority="low" />
+    <link rel="preload" href="/assets/complex-level.jpeg" as="image" fetchpriority="low" />
+    <link rel="preload" href="/assets/playstore-qr.svg" as="image" fetchpriority="low" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="page-main">
+
+      <!-- Hero -->
+      <section class="hero-bg hero-section">
+        <h1 class="hero-title">
+          <img
+            alt="Sum Zero"
+            width="64"
+            height="64"
+            src="data:image/svg+xml,%3csvg%20version='1.1'%20viewBox='0%200%20100%20123'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20transform='translate(-31%20-81)'%3e%3cpath%20d='m39%20112%2022%2028%2018-24-3.2-4.2zm62%2033-18%2023%204.2%205.4h36zm25-37%204.9-6.4v-21h-100v21l4.9%206.4z'%20fill='%23f8a263'/%3e%3cpath%20d='m123%20112h-37l-48%2062h36zm-87%2065-4.9%206.4v21h100v-21l-4.9-6.4z'/%3e%3c/g%3e%3c/svg%3e"
+          />
+          Sum Zero
+        </h1>
+        <h2 class="hero-subtitle">A minimalist math puzzle.</h2>
+        <div class="hero-actions">
+          <a class="btn btn-accent btn-lg" href="#download">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7.50005 1.04999C7.74858 1.04999 7.95005 1.25146 7.95005 1.49999V8.41359L10.1819 6.18179C10.3576 6.00605 10.6425 6.00605 10.8182 6.18179C10.994 6.35753 10.994 6.64245 10.8182 6.81819L7.81825 9.81819C7.64251 9.99392 7.35759 9.99392 7.18185 9.81819L4.18185 6.81819C4.00611 6.64245 4.00611 6.35753 4.18185 6.18179C4.35759 6.00605 4.64251 6.00605 4.81825 6.18179L7.05005 8.41359V1.49999C7.05005 1.25146 7.25152 1.04999 7.50005 1.04999ZM2.5 10C2.77614 10 3 10.2239 3 10.5V12C3 12.5539 3.44565 13 3.99635 13H11.0012C11.5529 13 12 12.5528 12 12V10.5C12 10.2239 12.2239 10 12.5 10C12.7761 10 13 10.2239 13 10.5V12C13 13.1041 12.1062 14 11.0012 14H3.99635C2.89019 14 2 13.103 2 12V10.5C2 10.2239 2.22386 10 2.5 10Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            Download
+          </a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/StampedeStudios/sum-zero" target="_blank" aria-label="Source code on GitHub (opens in new tab)">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7.49933 0.25C3.49635 0.25 0.25 3.49593 0.25 7.50024C0.25 10.703 2.32715 13.4206 5.2081 14.3797C5.57084 14.446 5.70302 14.2222 5.70302 14.0299C5.70302 13.8576 5.69679 13.4019 5.69323 12.797C3.67661 13.235 3.25112 11.825 3.25112 11.825C2.92132 10.9874 2.44599 10.7644 2.44599 10.7644C1.78773 10.3149 2.49584 10.3238 2.49584 10.3238C3.22353 10.375 3.60629 11.0711 3.60629 11.0711C4.25298 12.1788 5.30335 11.8588 5.71638 11.6732C5.78225 11.205 5.96962 10.8854 6.17658 10.7043C4.56675 10.5209 2.87415 9.89918 2.87415 7.12104C2.87415 6.32925 3.15677 5.68257 3.62053 5.17563C3.54576 4.99226 3.29697 4.25521 3.69174 3.25691C3.69174 3.25691 4.30015 3.06196 5.68522 3.99973C6.26337 3.83906 6.8838 3.75895 7.50022 3.75583C8.1162 3.75895 8.73619 3.83906 9.31523 3.99973C10.6994 3.06196 11.3069 3.25691 11.3069 3.25691C11.7026 4.25521 11.4538 4.99226 11.3795 5.17563C11.8441 5.68257 12.1245 6.32925 12.1245 7.12104C12.1245 9.9063 10.4292 10.5192 8.81452 10.6985C9.07444 10.9224 9.30633 11.3648 9.30633 12.0413C9.30633 13.0102 9.29742 13.7922 9.29742 14.0299C9.29742 14.2239 9.42828 14.4496 9.79591 14.3788C12.6746 13.4179 14.75 10.7025 14.75 7.50024C14.75 3.49593 11.5036 0.25 7.49933 0.25Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            Source code
+          </a>
+        </div>
+        <p class="hero-platforms">Available for Android, Linux and Windows</p>
+      </section>
+
+      <!-- Features -->
+      <div class="features-wrapper">
+
+        <div class="feature-row">
+          <div class="feature-image shadow-image">
+            <img class="feature-img" alt="Basic level" src="/assets/basic-level.jpeg" />
+          </div>
+          <div class="feature-text">
+            <h3>Simple to pick up</h3>
+            <p>Start with clean, minimal levels that teach you the basics. Grab, drag, and reach zero — it's that simple.</p>
+          </div>
+        </div>
+
+        <div class="feature-row feature-row-reverse">
+          <div class="feature-image shadow-image">
+            <img class="feature-img" alt="Feature-rich level" src="/assets/rich-feature-level.jpeg" />
+          </div>
+          <div class="feature-text">
+            <h3>Rich mechanics</h3>
+            <p>Discover new slider types and special rules as you progress. Each mechanic adds a fresh twist to keep you thinking.</p>
+          </div>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-image shadow-image">
+            <img class="feature-img" alt="Complex level" src="/assets/complex-level.jpeg" />
+          </div>
+          <div class="feature-text">
+            <h3>Challenging puzzles</h3>
+            <p>Push your logic to the limit with complex, multi-step puzzles that demand creative solutions.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Download -->
+      <section class="download-section" id="download">
+        <h2 class="download-title">Get Sum Zero</h2>
+        <p class="download-subtitle">Free and open source. Available on Android, Linux and Windows.</p>
+
+        <div class="download-card shadow-image-sm">
+          <div class="release-info">
+            <h1 class="release-version"><%= it.release.tag_name %></h1>
+            <h2 class="release-date"><%= it.releaseDate %></h2>
+
+            <ul class="platform-list">
+
+              <!-- Android -->
+              <li class="platform-item">
+                <h5 class="platform-heading">
+                  <svg aria-label="Android" class="platform-icon" role="img" height="16" width="16" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"></path></svg>
+                  Android
+                </h5>
+                <a class="btn btn-accent btn-sm btn-full" href="https://play.google.com/store/apps/details?id=it.stampede.sumzero" target="_blank" aria-label="Open Sum Zero on Google Play (opens in new tab)">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                  Open
+                </a>
+                <details class="qr-details">
+                  <summary class="qr-summary">
+                    QR code
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="qr-chevron" aria-hidden="true"><path d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                  </summary>
+                  <div class="qr-content">
+                    <div class="qr-card">
+                      <img class="qr-image" alt="QR code to Sum Zero on Google Play" src="/assets/playstore-qr.svg" />
+                      <span class="qr-label">Scan to open on Google Play</span>
+                    </div>
+                  </div>
+                </details>
+              </li>
+              <div class="platform-note">7.0 or later</div>
+              <hr class="platform-divider" />
+
+              <!-- itch.io -->
+              <li class="platform-item">
+                <h5 class="platform-heading">
+                  <svg aria-label="itch.io" class="platform-icon" role="img" height="16" width="16" fill="currentColor" viewBox="0 0 245.371 220.736" xmlns="http://www.w3.org/2000/svg"><path d="M31.99 1.365C21.287 7.72.2 31.945 0 38.298v10.516C0 62.144 12.46 73.86 23.773 73.86c13.584 0 24.902-11.258 24.903-24.62 0 13.362 10.93 24.62 24.515 24.62 13.586 0 24.165-11.258 24.165-24.62 0 13.362 11.622 24.62 25.207 24.62h.246c13.586 0 25.208-11.258 25.208-24.62 0 13.362 10.58 24.62 24.164 24.62 13.585 0 24.515-11.258 24.515-24.62 0 13.362 11.32 24.62 24.903 24.62 11.313 0 23.773-11.714 23.773-25.046V38.298c-.2-6.354-21.287-30.58-31.988-36.933C180.118.197 157.056-.005 122.685 0c-34.37.003-81.228.54-90.697 1.365zm65.194 66.217a28.025 28.025 0 0 1-4.78 6.155c-5.128 5.014-12.157 8.122-19.906 8.122a28.482 28.482 0 0 1-19.948-8.126c-1.858-1.82-3.27-3.766-4.563-6.032l-.006.004c-1.292 2.27-3.092 4.215-4.954 6.037a28.5 28.5 0 0 1-19.948 8.12c-.934 0-1.906-.258-2.692-.528-1.092 11.372-1.553 22.24-1.716 30.164l-.002.045c-.02 4.024-.04 7.333-.06 11.93.21 23.86-2.363 77.334 10.52 90.473 19.964 4.655 56.7 6.775 93.555 6.788h.006c36.854-.013 73.59-2.133 93.554-6.788 12.883-13.14 10.31-66.614 10.52-90.474-.022-4.596-.04-7.905-.06-11.93l-.003-.045c-.162-7.926-.623-18.793-1.715-30.165-.786.27-1.757.528-2.692.528a28.5 28.5 0 0 1-19.948-8.12c-1.862-1.822-3.662-3.766-4.955-6.037l-.006-.004c-1.294 2.266-2.705 4.213-4.563 6.032a28.48 28.48 0 0 1-19.947 8.125c-7.748 0-14.778-3.11-19.906-8.123a28.025 28.025 0 0 1-4.78-6.155 27.99 27.99 0 0 1-4.736 6.155 28.49 28.49 0 0 1-19.95 8.124c-.27 0-.54-.012-.81-.02h-.007c-.27.008-.54.02-.813.02a28.49 28.49 0 0 1-19.95-8.123 27.992 27.992 0 0 1-4.736-6.155zm-20.486 26.49l-.002.01h.015c8.113.017 15.32 0 24.25 9.746 7.028-.737 14.372-1.105 21.722-1.094h.006c7.35-.01 14.694.357 21.723 1.094 8.93-9.747 16.137-9.73 24.25-9.746h.014l-.002-.01c3.833 0 19.166 0 29.85 30.007L210 165.244c8.504 30.624-2.723 31.373-16.727 31.4-20.768-.773-32.267-15.855-32.267-30.935-11.496 1.884-24.907 2.826-38.318 2.827h-.006c-13.412 0-26.823-.943-38.318-2.827 0 15.08-11.5 30.162-32.267 30.935-14.004-.027-25.23-.775-16.726-31.4L46.85 124.08C57.534 94.073 72.867 94.073 76.7 94.073zm45.985 23.582v.006c-.02.02-21.863 20.08-25.79 27.215l14.304-.573v12.474c0 .584 5.74.346 11.486.08h.006c5.744.266 11.485.504 11.485-.08v-12.474l14.304.573c-3.928-7.135-25.79-27.215-25.79-27.215v-.006l-.003.002z"></path></svg>
+                  Web
+                </h5>
+                <a class="btn btn-accent btn-sm btn-full" href="https://stampede-studios.itch.io/sum-zero" target="_blank" aria-label="Play Sum Zero on itch.io (opens in new tab)">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 2C2.44772 2 2 2.44772 2 3V12C2 12.5523 2.44772 13 3 13H12C12.5523 13 13 12.5523 13 12V8.5C13 8.22386 12.7761 8 12.5 8C12.2239 8 12 8.22386 12 8.5V12H3V3L6.5 3C6.77614 3 7 2.77614 7 2.5C7 2.22386 6.77614 2 6.5 2H3ZM12.8536 2.14645C12.9015 2.19439 12.9377 2.24964 12.9621 2.30861C12.9861 2.36669 12.9996 2.4303 13 2.497L13 2.5V2.50049V5.5C13 5.77614 12.7761 6 12.5 6C12.2239 6 12 5.77614 12 5.5V3.70711L6.85355 8.85355C6.65829 9.04882 6.34171 9.04882 6.14645 8.85355C5.95118 8.65829 5.95118 8.34171 6.14645 8.14645L11.2929 3H9.5C9.22386 3 9 2.77614 9 2.5C9 2.22386 9.22386 2 9.5 2H12.4999H12.5C12.5678 2 12.6324 2.01349 12.6914 2.03794C12.7504 2.06234 12.8056 2.09851 12.8536 2.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                  Open
+                </a>
+              </li>
+              <hr class="platform-divider" />
+
+              <!-- Linux -->
+              <li class="platform-item">
+                <h5 class="platform-heading">
+                  <svg aria-label="Linux" class="platform-icon" role="img" height="16" width="16" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M3.712 7.062c.05-.589.072-1.18.104-1.77.288-5.101 8.08-5.101 8.368 0 .034.606.06 1.212.123 1.816.388.834 2.057 4.514 1.107 4.898-.224.09-.61-.283-1.044-.954a4.4 4.4 0 0 1-1.311 2.395c.685.233 1.275.551 1.275.887 0 .584-8.667.592-8.667 0 0-.336.59-.654 1.275-.887-.68-.644-1.119-1.481-1.318-2.39-.433.667-.818 1.04-1.04.95-.958-.388.731-4.1 1.128-4.945" fill="transparent" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><path d="m6.119 6.6 1.57 1.29c.17.14.44.14.61 0l1.57-1.29c.27-.22.08-.6-.3-.6h-3.14c-.38 0-.57.38-.3.6z"></path></svg>
+                  Linux
+                </h5>
+                <% for (const asset of it.release.assets) { %>
+                  <% if (asset.name.includes("Linux")) { %>
+                <a class="btn btn-ghost btn-sm btn-full" href="<%= asset.browser_download_url %>" target="_blank" aria-label="Download Sum Zero for Linux (opens in new tab)">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7.50005 1.04999C7.74858 1.04999 7.95005 1.25146 7.95005 1.49999V8.41359L10.1819 6.18179C10.3576 6.00605 10.6425 6.00605 10.8182 6.18179C10.994 6.35753 10.994 6.64245 10.8182 6.81819L7.81825 9.81819C7.64251 9.99392 7.35759 9.99392 7.18185 9.81819L4.18185 6.81819C4.00611 6.64245 4.00611 6.35753 4.18185 6.18179C4.35759 6.00605 4.64251 6.00605 4.81825 6.18179L7.05005 8.41359V1.49999C7.05005 1.25146 7.25152 1.04999 7.50005 1.04999ZM2.5 10C2.77614 10 3 10.2239 3 10.5V12C3 12.5539 3.44565 13 3.99635 13H11.0012C11.5529 13 12 12.5528 12 12V10.5C12 10.2239 12.2239 10 12.5 10C12.7761 10 13 10.2239 13 10.5V12C13 13.1041 12.1062 14 11.0012 14H3.99635C2.89019 14 2 13.103 2 12V10.5C2 10.2239 2.22386 10 2.5 10Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                  Download
+                </a>
+                  <% } %>
+                <% } %>
+              </li>
+
+              <!-- Windows -->
+              <li class="platform-item">
+                <h5 class="platform-heading">
+                  <svg aria-label="Windows" class="platform-icon" role="img" height="16" width="16" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M7 1H1v6h6zm8 0H9v6h6zM7 9H1v6h6zm8 0H9v6h6z"></path></svg>
+                  Windows
+                </h5>
+                <% for (const asset of it.release.assets) { %>
+                  <% if (asset.name.includes("Windows")) { %>
+                <a class="btn btn-ghost btn-sm btn-full" href="<%= asset.browser_download_url %>" target="_blank" aria-label="Download Sum Zero for Windows (opens in new tab)">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7.50005 1.04999C7.74858 1.04999 7.95005 1.25146 7.95005 1.49999V8.41359L10.1819 6.18179C10.3576 6.00605 10.6425 6.00605 10.8182 6.18179C10.994 6.35753 10.994 6.64245 10.8182 6.81819L7.81825 9.81819C7.64251 9.99392 7.35759 9.99392 7.18185 9.81819L4.18185 6.81819C4.00611 6.64245 4.00611 6.35753 4.18185 6.18179C4.35759 6.00605 4.64251 6.00605 4.81825 6.18179L7.05005 8.41359V1.49999C7.05005 1.25146 7.25152 1.04999 7.50005 1.04999ZM2.5 10C2.77614 10 3 10.2239 3 10.5V12C3 12.5539 3.44565 13 3.99635 13H11.0012C11.5529 13 12 12.5528 12 12V10.5C12 10.2239 12.2239 10 12.5 10C12.7761 10 13 10.2239 13 10.5V12C13 13.1041 12.1062 14 11.0012 14H3.99635C2.89019 14 2 13.103 2 12V10.5C2 10.2239 2.22386 10 2.5 10Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                  Download
+                </a>
+                  <% } %>
+                <% } %>
+                <div class="platform-note">Intel/AMD</div>
+              </li>
+
+            </ul>
+
+            <!-- Ko-fi -->
+            <div class="kofi-section">
+              <p class="kofi-text">Enjoying Sum Zero? Consider supporting the project &lt;3!</p>
+              <a class="kofi-link" href="https://ko-fi.com/K3K41CH2HE" target="_blank" aria-label="Support Sum Zero on Ko-fi (opens in new tab)">
+                <img class="kofi-img" alt="Support me on Ko-fi" src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" />
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <p>© 2026 Stampede Studios. All rights reserved.</p>
+      </footer>
+
+    </main>
+
+    <!-- Back to top -->
+    <a class="back-to-top" href="#" aria-label="Back to top" data-back-to-top>top</a>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
